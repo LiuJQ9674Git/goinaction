@@ -1,11 +1,11 @@
 package main
 
 import (
-	"log"
-	"os"
-
 	_ "github.com/goinaction/code/chapter2/sample/matchers"
 	"github.com/goinaction/code/chapter2/sample/search"
+	"golang.org/x/time/rate"
+	"log"
+	"os"
 )
 
 // init is called prior to main.
@@ -18,4 +18,9 @@ func init() {
 func main() {
 	// Perform the search for the specified term.
 	search.Run("president")
+	//rateLimiter *rate.Limiter
+}
+
+type APIConnection struct {
+	rateLimiter *rate.Limiter
 }
